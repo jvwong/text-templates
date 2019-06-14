@@ -1,0 +1,36 @@
+Jianyuan Luo
+Department of Medical Genetics, Center for Medical Genetics
+Peking University Health Science Center, Beijing 100191, China
+ 
+Dear Dr. Jianyuan Luo,
+ 
+Congratulations on the acceptance of "Acetylation of PHF5A Modulates Stress Responses and Colorectal Carcinogenesis through Alternative Splicing-Mediated Upregulation of KDM3A" by Wang et al. at Molecular Cell (https://doi.org/10.1016/j.molcel.2019.04.009).
+ 
+Recently, Molecular Cell has begun a collaboration with Factoid (http://factoid.baderlab.org), a project developed by the labs of Gary Bader (University of Toronto), Chris Sander (Dana Farber and Harvard Medical School), and Emek Demir (Oregon Health & Science University).  Factoid is a web app that generates a computer-readable record of biochemical pathways present in published papers. This record is curated by the papers’ authors, providing best-in-class verification of its scientific accuracy. Verified records are attributed to authors and added to Factoid, where they can be freely used by other members of the scientific community.
+ 
+The Molecular Cell editors have road-tested Factoid, and we are looking for willing scientists to be our first external users. On behalf of our Factoid-Molecular Cell collaboration, I would like to invite you to  use the Factoid web app to digitally capture the biological interactions described in your new Molecular Cell paper. We anticipate that this should take no more than 20 minutes. You’re under absolutely no obligation to participate, but I believe your research and experience would be a valuable contribution.
+ 
+To get started:
+  1. Launch Factoid in your browser using the link below
+  2. Describe genes, chemicals and their interactions
+  3. Submit when done  
+ 
+That's it - we will take care of the rest!  After we’re finished, we’ll contact you to hear about your experience; we’d appreciate your feedback about how we can improve. It would be greatly appreciated if you could submit by July 27, 2019.
+ 
+Click to launch Factoid
+ 
+You may also begin by pasting the following URL into your browser location bar: https://factoid.baderlab.org/document/88de82c6-3181-4833-9f4e-b801b9e2f0db/726971cc-d47d-4f9f-b55a-78c88c1c733b
+ 
+Thank you in advance for your consideration. You’re welcome to reach out to me, Jeffrey Wong our outreach manager or to the Molecular Cell editorial team (cc’d), with any questions or concerns you might have.
+ 
+All the best,
+ 
+Gary D Bader | Professor
+The Donnelly Centre, Department of Molecular Genetics, Department of Computer Science
+University of Toronto | Toronto, Ontario, M5S 3E1, Canada
+ 
+---
+ 
+Inquiries:
+Jeffrey V. Wong | Factoid Outreach Manager | jeffvin.wong@utoronto.ca
+Factoid | http://factoid.baderlab.org/
