@@ -14,5 +14,8 @@
     "gulp-rename": "^1.4.0",
     "gulp-template": "^5.0.0",
     "lodash": "^4.17.11"
+  },
+  "dependencies": {
+    "moment": "^2.24.0"
   }
 }

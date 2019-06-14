@@ -3,7 +3,9 @@ const { src, dest, series } = require('gulp');
 const template = require('gulp-template');
 const clean = require('gulp-clean');
 const rename = require('gulp-rename');
+const moment = require('moment');
 
+const DAYS_TO_SUBMIT = 21;
 const APP_BASE_URL = 'https://factoid.baderlab.org/';
 const APP_DOCUMENT_PATH = 'document';
 
@@ -24,10 +26,20 @@ const ARTICLE_DATA = [
     contributorName: 'Jianyuan Luo', 
     contributorEmail: 'luojianyuan@bjmu.edu.cn', 
     contributorAddress: 'Department of Medical Genetics, Center for Medical Genetics\nPeking University Health Science Center, Beijing 100191, China',
-    documentUrl: APP_BASE_URL + APP_DOCUMENT_PATH + '/88de82c6-3181-4833-9f4e-b801b9e2f0db/726971cc-d47d-4f9f-b55a-78c88c1c733b',
-    submitByDate: 'July 27, 2019',
+    documentUrl: APP_BASE_URL + APP_DOCUMENT_PATH + '/88de82c6-3181-4833-9f4e-b801b9e2f0db/726971cc-d47d-4f9f-b55a-78c88c1c733b'
   }
 ];
+
+const getSubmitByDate = function( days ){ 
+  const day = new Date();
+  const submitByDay = day.setDate( day.getDate() + days );
+  return moment( submitByDay ).format( 'LL' ); 
+}
+
+const getDocs = function(){ 
+  const submitByDate = getSubmitByDate( DAYS_TO_SUBMIT );
+  return ARTICLE_DATA.map( o => _.assign( {}, JOURNAL_DATA, APP_DATA, o, { submitByDate } ) ); 
+}
 
 const cleanTask = function( ) {
   return src( 'output/**/*.*' )
@@ -36,7 +48,7 @@ const cleanTask = function( ) {
 
 const compileTemplatesTask = function( ) {
 
-  const docs = ARTICLE_DATA.map( o => _.assign( {}, JOURNAL_DATA, APP_DATA, o ) );
+  const docs = getDocs();
   const promises = docs.map( ( d, i ) => {
     return src( 'templates/email.txt' )
       .pipe( template( d ) )
