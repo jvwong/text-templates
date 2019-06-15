@@ -16,9 +16,7 @@ To get started:
  
 That's it - we will take care of the rest!  After we’re finished, we’ll contact you to hear about your experience; we’d appreciate your feedback about how we can improve. It would be greatly appreciated if you could submit by <%= submitByDate %>.
  
-<a href="<%= documentUrl %>">>Click to launch <%= appName %></a>
- 
-You may also begin by pasting the following URL into your browser location bar: <%= documentUrl %>
+To begin, paste the following URL into your browser location bar: <%= documentUrl %>
  
 Thank you in advance for your consideration. You’re welcome to reach out to me, Jeffrey Wong our outreach manager or to the <%= journalName %> editorial team (cc’d), with any questions or concerns you might have.
  

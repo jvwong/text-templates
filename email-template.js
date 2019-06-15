@@ -22,7 +22,6 @@ const getSubmitByDate = function( days ){
   return moment( submitByDay ).format( 'LL' ); 
 }
 
-
 const getDoc = function( articleInfo ){   
   const submitByDate = getSubmitByDate( DAYS_TO_SUBMIT );
   return _.assign( {}, JOURNAL_DATA, APP_DATA, articleInfo, { 
@@ -31,10 +30,9 @@ const getDoc = function( articleInfo ){
       }) 
 };
 
-const getEmailStream = function( articleInfo ) {
+const getEmailStream = function( templatePath, articleInfo ) {
   const doc = getDoc( articleInfo );
-  return src( 'templates/email.txt' )
-    .pipe( template( doc ) );
+  return src( templatePath ).pipe( template( doc ) );
 };
 
 
