@@ -16,12 +16,18 @@ To get started:
  
 That's it - we will take care of the rest!  After we’re finished, we’ll contact you to hear about your experience; we’d appreciate your feedback about how we can improve. It would be greatly appreciated if you could submit by {{ submitByDate }}.
  
-To begin, paste the following URL into your browser location bar: {{ documentUrl }}
- 
+
+
+To begin, follow this link: {{ documentUrl }}
+
+
+
 Thank you in advance for your consideration. You’re welcome to reach out to me, Jeffrey Wong our outreach manager or to the {{ journalName }} editorial team (cc’d), with any questions or concerns you might have.
- 
-All the best,
- 
+
+
+
+Best,
+
 Gary D Bader | Professor
 The Donnelly Centre, Department of Molecular Genetics, Department of Computer Science
 University of Toronto | Toronto, Ontario, M5S 3E1, Canada

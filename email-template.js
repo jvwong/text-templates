@@ -22,7 +22,7 @@ const getSubmitByDate = function( days ){
   return moment( submitByDay ).format( 'LL' ); 
 }
 
-const getDoc = function( articleInfo ){   
+const getDocData = articleInfo => {   
   const submitByDate = getSubmitByDate( DAYS_TO_SUBMIT );
   return _.assign( {}, JOURNAL_DATA, APP_DATA, articleInfo, { 
         submitByDate,
@@ -30,15 +30,15 @@ const getDoc = function( articleInfo ){
       }) 
 };
 
-const createEmail = ( templatePath, articleInfo ) => {
-  const docInfo = getDoc( articleInfo );
+const renderFromTemplate = ( templatePath, articleInfo ) => {
   const template = fs.readFileSync( templatePath, 'utf8' );  
   const cTemplate = Hogan.compile( template );
-  const rendered = cTemplate.render( docInfo );
+  const docData = getDocData( articleInfo );
+  const rendered = cTemplate.render( docData );
   return rendered;
 };
 
 
 module.exports = {
-  createEmail
+  renderFromTemplate
 };
