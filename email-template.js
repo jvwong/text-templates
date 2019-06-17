@@ -22,19 +22,19 @@ const getSubmitByDate = function( days ){
   return moment( submitByDay ).format( 'LL' ); 
 }
 
-const getDocData = articleInfo => {   
+const getRenderData = templateData => {   
   const submitByDate = getSubmitByDate( DAYS_TO_SUBMIT );
-  return _.assign( {}, JOURNAL_DATA, APP_DATA, articleInfo, { 
+  return _.assign( {}, JOURNAL_DATA, APP_DATA, templateData, { 
         submitByDate,
-        documentUrl: APP_BASE_URL + APP_DOCUMENT_PATH + '/' + articleInfo.docSecret + '/' + articleInfo.docId
+        documentUrl: APP_BASE_URL + APP_DOCUMENT_PATH + '/' + templateData.docSecret + '/' + templateData.docId
       }) 
 };
 
-const renderFromTemplate = ( templatePath, articleInfo ) => {
+const renderFromTemplate = ( templatePath, templateData ) => {
   const template = fs.readFileSync( templatePath, 'utf8' );  
   const cTemplate = Hogan.compile( template );
-  const docData = getDocData( articleInfo );
-  const rendered = cTemplate.render( docData );
+  const renderData = getRenderData( templateData );
+  const rendered = cTemplate.render( renderData );
   return rendered;
 };
 
