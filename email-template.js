@@ -1,6 +1,6 @@
 const _ = require('lodash');
 const fs = require('fs');
-const Hogan = require("hogan.js");
+const Hogan = require('hogan.js');
 const moment = require('moment');
 
 const DAYS_TO_SUBMIT = 21;
