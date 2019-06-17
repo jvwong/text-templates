@@ -1,6 +1,6 @@
 const _ = require('lodash');
-const { src } = require('gulp');
-const template = require('gulp-template');
+const fs = require('fs');
+const Hogan = require("hogan.js");
 const moment = require('moment');
 
 const DAYS_TO_SUBMIT = 21;
@@ -30,12 +30,15 @@ const getDoc = function( articleInfo ){
       }) 
 };
 
-const getEmailStream = function( templatePath, articleInfo ) {
-  const doc = getDoc( articleInfo );
-  return src( templatePath ).pipe( template( doc ) );
+const createEmail = ( templatePath, articleInfo ) => {
+  const docInfo = getDoc( articleInfo );
+  const template = fs.readFileSync( templatePath, 'utf8' );  
+  const cTemplate = Hogan.compile( template );
+  const rendered = cTemplate.render( docInfo );
+  return rendered;
 };
 
 
 module.exports = {
-  getEmailStream
+  createEmail
 };
