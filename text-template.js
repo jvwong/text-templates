@@ -1,20 +1,16 @@
+var Promise = require('bluebird');
 const _ = require('lodash');
 const fs = require('fs');
+var readFile = Promise.promisify( require("fs").readFile );
+
 const Hogan = require('hogan.js');
 const moment = require('moment');
 
-const DAYS_TO_SUBMIT = 21;
-const APP_BASE_URL = 'https://factoid.baderlab.org/';
-const APP_DOCUMENT_PATH = 'document';
+const DAYS_TO_SUBMIT = 14;
+const APP_BASE_URL = 'https://factoid.baderlab.org';
 
-const JOURNAL_DATA = { 
-  journalName: 'Molecular Cell'
-};
-
-const APP_DATA = {
-  appUrl: APP_BASE_URL,
-  appName: 'Factoid'
-};
+const getTemplate = templatePath => fs.readFileSync( templatePath, 'utf8' );
+const compileTemplate = template => Hogan.compile( template );
 
 const getSubmitByDate = function( days ){ 
   const day = new Date();
@@ -22,20 +18,25 @@ const getSubmitByDate = function( days ){
   return moment( submitByDay ).format( 'LL' ); 
 }
 
-const getRenderData = templateData => {   
-  const submitByDate = getSubmitByDate( DAYS_TO_SUBMIT );
-  return _.assign( {}, JOURNAL_DATA, APP_DATA, templateData, { 
-        submitByDate,
-        documentUrl: APP_BASE_URL + APP_DOCUMENT_PATH + '/' + templateData.docSecret + '/' + templateData.docId
-      }) 
+const buildRenderData = docData => {
+  const additionalFields = {
+    contributorLastName: _.last( _.get( docData, ['contributorName'], '' ).split(' ') ),
+    firstAuthorName: _.first( _.get( docData, ['authors'], '' ).split(',') ),
+    submitByDate: getSubmitByDate( DAYS_TO_SUBMIT ),
+    docUrl: APP_BASE_URL + _.get( docData, ['privateUrl'], '' )
+  };
+  return _.assign( {},
+    docData,
+    additionalFields
+  ) 
 };
 
-const renderFromTemplate = ( templatePath, templateData ) => {
-  const template = fs.readFileSync( templatePath, 'utf8' );  
-  const cTemplate = Hogan.compile( template );
-  const renderData = getRenderData( templateData );
-  const rendered = cTemplate.render( renderData );
-  return rendered;
+const renderFromTemplate = ( templatePath, docData ) => {
+  const renderData = buildRenderData( docData );
+  return Promise.resolve( templatePath )
+    .then( getTemplate )
+    .then( compileTemplate )
+    .then( compiled => compiled.render( renderData ) );  
 };
 
 

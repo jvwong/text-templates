@@ -10,8 +10,9 @@
   "license": "ISC",
   "devDependencies": {},
   "dependencies": {
-    "lodash": "^4.17.11",
+    "bluebird": "^3.5.5",
     "hogan.js": "^3.0.2",
+    "lodash": "^4.17.11",
     "moment": "^2.24.0"
   }
 }

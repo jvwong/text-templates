@@ -1,10 +1,11 @@
 const path = require('path');
 
-const { renderFromTemplate } = require('./email-template.js');
+const { renderFromTemplate } = require('./text-template.js');
+const { getDocData } = require('./data/doc-data.js');
 
-const data = require('./article-data.js');
-const articleInfo = data[0];
-const templatePath = path.resolve(__dirname, './templates/email.txt' );
-const email = renderFromTemplate( templatePath, articleInfo );
+const docData = getDocData( '88de82c6-3181-4833-9f4e-b801b9e2f0db' );
+const templatePath = path.resolve( __dirname, './templates/email.txt' );
 
-console.log(email);
+renderFromTemplate( templatePath, docData )
+  .then( out => console.log( out ) )
+  ;
