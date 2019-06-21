@@ -20,7 +20,7 @@ const buildRenderData = docData => {
     contributorLastName: _.last( _.get( docData, ['contributorName'], '' ).split(' ') ),
     firstAuthorName: _.first( _.get( docData, ['authors'], '' ).split(',') ),
     submitByDate: getSubmitByDate( DAYS_TO_SUBMIT ),
-    docUrl: APP_BASE_URL + _.get( docData, ['privateUrl'], '' )
+    docUrl: APP_BASE_URL + _.get( docData, ['privateUrl'], '' ) + '/' + _.get( docData, ['secret'], '' )
   };
   return _.assign( {},
     docData,
