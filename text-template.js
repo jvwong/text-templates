@@ -1,8 +1,5 @@
-var Promise = require('bluebird');
 const _ = require('lodash');
 const fs = require('fs');
-var readFile = Promise.promisify( require("fs").readFile );
-
 const Hogan = require('hogan.js');
 const moment = require('moment');
 
