@@ -1,5 +1,3 @@
-const _ = require('lodash');
-
 const documents = [
   {
     "id": "88de82c6-3181-4833-9f4e-b801b9e2f0db",
@@ -172,9 +170,7 @@ const emailData = [
   }
 ];
 
-const findById = ( docs, id ) => _.find( docs, { 'id': id } );
-const getDocData = id => _.assign( {}, findById( documents, id ), findById( emailData, id ) );
-
 module.exports = {
-  getDocData
+  documents,
+  emailData
 };

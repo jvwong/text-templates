@@ -1,11 +1,19 @@
 const path = require('path');
+const _ = require('lodash');
 
 const { renderFromTemplate } = require('./text-template.js');
-const { getDocData } = require('./data/doc-data.js');
+const { buildRenderData } = require('./build-data.js');
+const { documents, emailData } = require('./data/email-data.js');
+const findById = ( docs, id ) => _.find( docs, { 'id': id } );
 
-const docData = getDocData( '7826fd5b-d5af-4f4c-9645-de5264907272' );
-const templatePath = path.resolve( __dirname, './templates/email.txt' );
-
-renderFromTemplate( templatePath, docData )
-  .then( out => console.log( out ) )
-  ;
+documents.forEach( ( document, i ) => {
+  const rawData = _.assign( {}, document, findById( emailData, document.id ) );
+  const renderData = buildRenderData( rawData );
+  const templatePath = path.resolve( __dirname, './templates/email.txt' );
+  
+  renderFromTemplate( templatePath, renderData )
+    .then( out => {
+      i ?  console.log( '\n\n\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n\n\n' ): '';
+      console.log( out )
+    });
+});

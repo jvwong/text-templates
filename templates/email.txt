@@ -1,7 +1,7 @@
-From: Gary Bader <gary.bader@utoronto.ca> 
+From: Jeffrey Wong <jeffvin.wong@utoronto.ca>
 Subject: Molecular Cell invites you to use Factoid for "{{ title }}"
 To: {{ contributorEmail }}
-Cc: molecule@cell.com, jeffvin.wong@utoronto.ca
+Cc: molecule@cell.com, Gary Bader <gary.bader@utoronto.ca>
 
 ---
 
