@@ -1,0 +1,24 @@
+From: Jeffrey Wong <jeffvin.wong@utoronto.ca>
+Subject: Re: Molecular Cell invites you to use Factoid for "{{ title }}"
+To: {{ contributorEmail }}
+
+---
+
+ Dear Dr. {{ contributorLastName }},
+ 
+Recently, we sent you an invitation to use the Factoid website to describe biological pathway information in your recent article "{{ title }}" by {{ firstAuthorName }} et al. at Molecular Cell. Molecular Cell is currently collaborating with Factoid, a website that enables authors to generate a computable-readable record of information in articles in order to improve access to biological knowledge and author attribution.
+ 
+To begin, follow this link: 
+{{ docUrl }}
+
+Please do not hesitate to contact us if you have any questions.
+
+Regards,
+
+Jeffrey Wong on behalf of the Factoid team and Molecular Cell
+
+---
+ 
+Inquiries:
+Jeffrey V. Wong | Factoid Outreach Manager | jeffvin.wong@utoronto.ca
+Factoid | https://factoid.baderlab.org/

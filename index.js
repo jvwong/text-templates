@@ -9,7 +9,7 @@ const findById = ( docs, id ) => _.find( docs, { 'id': id } );
 documents.forEach( ( document, i ) => {
   const rawData = _.assign( {}, document, findById( emailData, document.id ) );
   const renderData = buildRenderData( rawData );
-  const templatePath = path.resolve( __dirname, './templates/email.txt' );
+  const templatePath = path.resolve( __dirname, './templates/invitation-follow-up.txt' );
   
   renderFromTemplate( templatePath, renderData )
     .then( out => {
