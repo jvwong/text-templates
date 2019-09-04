@@ -1,19 +1,30 @@
 const path = require('path');
 const _ = require('lodash');
+const fs = require('fs');
 
-const { renderFromTemplate } = require('./text-template.js');
-const { buildRenderData } = require('./build-data.js');
-const { documents, emailData } = require('./data/email-data.js');
-const findById = ( docs, id ) => _.find( docs, { 'id': id } );
+const data = require('./data/email-data-p2-extra-input.json');
+const buildRenderData = require('./build-data.js');
+const renderFromTemplate = require('./text-template.js');
+const getDocument = require('./factoid.js');
 
-documents.forEach( ( document, i ) => {
-  const rawData = _.assign( {}, document, findById( emailData, document.id ) );
-  const renderData = buildRenderData( rawData );
-  const templatePath = path.resolve( __dirname, './templates/invitation-follow-up.txt' );
-  
-  renderFromTemplate( templatePath, renderData )
-    .then( out => {
-      i ?  console.log( '\n\n\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n\n\n' ): '';
-      console.log( out )
-    });
-});
+async function createEmails ( articles, templatePath ) {
+  for ( const article of articles ) {
+    try {
+      const contributorAffiliation = _.pick( article, ['contributorAffiliation'] );
+      const document = await getDocument( article );
+      const renderData = buildRenderData( _.assign( {}, document, contributorAffiliation ) );
+      const text = await renderFromTemplate( path.resolve( __dirname, templatePath ), renderData );
+
+      const outFile = `./emails/${_.get( article, ['trackingId'] )}.txt`;
+      fs.writeFileSync( path.resolve( __dirname, outFile ), text );
+    } catch (e) {
+      console.log( e );
+    }
+  }
+  console.log('Done!');
+}
+
+const key = 'a';
+const tmplName = `invitation-version-${key}.txt`
+createEmails( _.get( data, `${key}` ), './templates/' + tmplName );
+

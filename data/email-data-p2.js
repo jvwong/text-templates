@@ -144,11 +144,11 @@ const documents = [
     "contributorEmail": "mart.loog@ut.ee",
     "editorName": "Miao-Chih Tsai",
     "editorEmail": "mtsai@cell.com"
-  }  
+  }
 ];
 
 const emailData = [
-  { 
+  {
     "id": "88de82c6-3181-4833-9f4e-b801b9e2f0db",
     "contributorAddress": "Department of Medical Genetics, Center for Medical Genetics\nPeking University Health Science Center\nBeijing 100191, China"
   },
