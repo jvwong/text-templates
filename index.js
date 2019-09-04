@@ -24,7 +24,7 @@ async function createEmails ( articles, templatePath ) {
   console.log('Done!');
 }
 
-const key = 'a';
+const key = 'b';
 const tmplName = `invitation-version-${key}.txt`
 createEmails( _.get( data, `${key}` ), './templates/' + tmplName );
 

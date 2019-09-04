@@ -8,7 +8,6 @@ Cc: molecule@cell.com, Gary Bader <gary.bader@utoronto.ca>
 {{ contributorName }}
 {{ contributorAffiliation }}
 
-Dear Dr. {{ contributorLastName }},
 
 Congratulations on the acceptance of "{{ title }}" by {{ firstAuthorName }} et al. at Molecular Cell (PubMed identifier: {{ trackingId }}).
 
