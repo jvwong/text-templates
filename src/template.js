@@ -1,6 +1,7 @@
 const fs = require('fs');
 const Hogan = require('hogan.js');
-const Promise = require('bluebird');
+import Promise from 'bluebird';
+
 const readFile = Promise.promisify( fs.readFile );
 
 const getTemplate = async templatePath => readFile( templatePath, 'utf8' );

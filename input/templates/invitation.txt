@@ -1,4 +1,4 @@
-{{ authorName }}, after reading your report on the interaction between {{ intParticipantSrc }} and {{ intParticipantTgt }} ({{ articleLink }}) I wanted to introduce you to our group’s project named {{ appName }} ({{ appDomain }}), which creates a digital profile of biological interactions in an article and connects it to related research.
+{{ authorName }}, after reading your report on the interaction between {{ intParticipantSrc }} and {{ intParticipantTgt }} ({{ articleCitation }}) I wanted to introduce you to our group’s project named {{ appName }} ({{ appDomain }}), which creates a digital profile of biological interactions in an article and connects it to related research.
 
 Adding a profile to Biofactoid is like creating a pin on Google Maps: Details you add make your research easier for scientists to discover (e.g search engine), explore (e.g. visualization software) and link to useful knowledge, like papers and gene databases.
 
