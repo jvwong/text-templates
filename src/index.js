@@ -2,6 +2,7 @@ import _ from 'lodash';
 import csv from 'csvtojson';
 import fs from 'fs';
 import Promise from 'bluebird';
+import clipboardy from 'clipboardy';
 
 const writeFile = Promise.promisify( fs.writeFile );
 
@@ -80,9 +81,19 @@ const json2csv = jsonData =>  {
 const writeToFile = async data =>  {
   try {
     await writeFile( DATA_OUTPUT_PATH, data );
+
+    return data;
   } catch (err) {
     console.error(err);
   }
+};
+
+const copyToClipboard = async data => {
+  await clipboardy.write(data);
+
+  console.log(data);
+
+  return data;
 };
 
 // Fire it up
@@ -91,6 +102,7 @@ Promise.resolve( TEMPLATE_DATA_PATH )
   .then( templateData =>  populateTemplates( TEMPLATE_PATH, templateData ) )
   .then( json2csv )
   .then( writeToFile )
+  .then( copyToClipboard )
   .catch( e => {
     console.error(e);
   });
