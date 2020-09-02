@@ -8,8 +8,8 @@ const readFile = Promise.promisify( fs.readFile );
 
 const DATA_PATH = `output/rendered-data.csv`;
 
-const send = async (to, subject, body) => {
-  open(`mailto:${to}?&subject=${subject}&body=${body}`);
+const send = async (to, subject, body) => {console.log(subject);
+  open(`mailto:${to}?subject=${subject}&body=${body}`);
 };
 
 const csv2json = async csvTxt => {
