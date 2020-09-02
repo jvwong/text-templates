@@ -8,7 +8,7 @@ const readFile = Promise.promisify( fs.readFile );
 
 const DATA_PATH = `output/rendered-data.csv`;
 
-const send = async (to, subject, body) => {console.log(subject);
+const send = async (to, subject, body) => {
   open(`mailto:${to}?subject=${subject}&body=${body}`);
 };
 
