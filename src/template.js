@@ -41,7 +41,7 @@ const DEFAULT_TEMPLATE_DATA = {
 };
 
 const getTemplateData = async path => {
-  const templateData = await csv().fromFile( path );
+  const templateData = await csv({ delimiter: 'auto' }).fromFile( path );
   const getPmid = d => _.get( d, ['pmid'] );
   const id = templateData.map( getPmid ).join(',');
   const eSummaryResponse = await eSummary( { id } );
