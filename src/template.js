@@ -40,19 +40,19 @@ const DEFAULT_TEMPLATE_DATA = {
   twitterAccountName: TWITTER_ACCOUNT_NAME
 };
 
-// Paired templates and data
-
 const getTemplateData = async path => {
   let output = [];
   const templateData = await csv().fromFile( path );
-  for ( const currentData of templateData ){
+  const getPmid = d => _.get( d, ['pmid'] );
+  const id = templateData.map( getPmid ).join(',');
+  const eSummaryResponse = await eSummary( { id } );
+
+  return templateData.map( currentData => {
     const { pmid } = currentData;
-    const eSummaryResponse = await eSummary({ id: currentData.pmid });
     const { source, pubdate } = _.get( eSummaryResponse, [ 'result', pmid ] );
     const articleCitation = `${source}, ${pubdate}`;
-    output.push( _.defaults( { articleCitation }, currentData, DEFAULT_TEMPLATE_DATA ) );
-  }
-  return output;
+    return _.defaults( { articleCitation }, currentData, DEFAULT_TEMPLATE_DATA );
+  });
 };
 
 const getEmailSubject = templateVars => `Connect your findings about ${templateVars.intParticipantSrc}/${templateVars.intParticipantTgt} to related research`;
@@ -102,16 +102,18 @@ const copyToClipboard = async data => {
 };
 
 const main = async () => {
-  // Fire it up
-  Promise.resolve( TEMPLATE_DATA_PATH )
-    .then( getTemplateData )
-    .then( templateData =>  populateTemplates( TEMPLATE_PATH, templateData ) )
-    .then( json2csv )
-    .then( writeToFile )
-    .then( copyToClipboard )
-    .catch( e => {
-      console.error( e );
-    });
+
+  try {
+
+    const templateData = await getTemplateData( TEMPLATE_DATA_PATH )
+    const populatedTemplates = await populateTemplates( TEMPLATE_PATH, templateData );
+    const csvData = json2csv( populatedTemplates );
+    await Promise.all([ writeToFile( csvData ), copyToClipboard( csvData ) ]);
+    process.exit( 0 );
+  } catch ( err ) {
+    console.error( err );
+    process.exit( 1 );
+  }
 }
 
 main();
