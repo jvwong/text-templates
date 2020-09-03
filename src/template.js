@@ -41,7 +41,6 @@ const DEFAULT_TEMPLATE_DATA = {
 };
 
 const getTemplateData = async path => {
-  let output = [];
   const templateData = await csv().fromFile( path );
   const getPmid = d => _.get( d, ['pmid'] );
   const id = templateData.map( getPmid ).join(',');
@@ -65,8 +64,6 @@ const populateTemplates = async ( templatePath, templateData ) => {
       const emailText = await renderFromTemplate( templatePath, templateVars );
       const emailSubject = getEmailSubject( templateVars );
       const emailRecipientAddress = getEmailRecipientAddress( templateVars );
-      // const mailOpts = msgFactory({ emailRecipientAddress, emailSubject, emailText });
-      // let info =  await sendMail( mailOpts );
       populated.push({ emailRecipientAddress, emailSubject, emailText });
     } catch ( error ) {
       console.error( `Error sending email: ${error.message}`);
@@ -104,7 +101,6 @@ const copyToClipboard = async data => {
 const main = async () => {
 
   try {
-
     const templateData = await getTemplateData( TEMPLATE_DATA_PATH )
     const populatedTemplates = await populateTemplates( TEMPLATE_PATH, templateData );
     const csvData = json2csv( populatedTemplates );
