@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import csv from 'csvtojson';
 import fs from 'fs';
+import path from 'path';
 import Promise from 'bluebird';
 import clipboardy from 'clipboardy';
 import { Parser } from 'json2csv';
@@ -24,12 +25,14 @@ import {
   APP_DOMAIN,
   EMAIL_SENDER_NAME,
   EMAIL_SENDER_SIGNATURE,
-  TWITTER_ACCOUNT_NAME
+  TWITTER_ACCOUNT_NAME,
+  TEMPLATE_FILENAME,
+  TEMPLATE_DATA_FILENAME
 } from './config';
 import { eSummary } from './util/eutils';
 
-const TEMPLATE_PATH = 'input/templates/invitation.txt';
-const TEMPLATE_DATA_PATH = 'input/data/sample-data.csv';
+const TEMPLATE_PATH = path.resolve( path.join( 'input/templates', TEMPLATE_FILENAME) );
+const TEMPLATE_DATA_PATH = path.resolve( path.join( 'input/data', TEMPLATE_DATA_FILENAME ) );
 const DATA_OUTPUT_PATH = 'output/rendered-data.csv';
 
 const DEFAULT_TEMPLATE_DATA = {
@@ -54,7 +57,7 @@ const getTemplateData = async path => {
   });
 };
 
-const getEmailSubject = templateVars => `Connect your findings about ${templateVars.intParticipantSrc}/${templateVars.intParticipantTgt} to related research`;
+const getEmailSubject = templateVars => `Our project trying to change how published results are shared`;
 const getEmailRecipientAddress = templateVars => _.get( templateVars, 'emailRecipientAddress' );
 
 const populateTemplates = async ( templatePath, templateData ) => {

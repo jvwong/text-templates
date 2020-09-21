@@ -19,6 +19,10 @@ const env = (key, defaultVal) => {
 export const APP_NAME = env( 'APP_NAME', 'Biofactoid' );
 export const APP_DOMAIN = env( 'APP_DOMAIN', 'biofactoid.org' );
 
+// Templates
+export const TEMPLATE_FILENAME = env( 'TEMPLATE_FILENAME', 'invitation.txt' );
+export const TEMPLATE_DATA_FILENAME = env( 'TEMPLATE_DATA_FILENAME', 'sample-data.csv' );
+
 // Links
 export const NCBI_PUBMED_BASE_URL = env('PUBMED_LINK_BASE_URL', 'https://pubmed.ncbi.nlm.nih.gov/');
 
