@@ -36,6 +36,7 @@ export const EMAIL_FROM_ADDR = env('EMAIL_FROM_ADDR', 'jeffvin.wong@utoronto.ca'
 export const EMAIL_FROM = env('EMAIL_FROM', 'Jeffrey V Wong');
 export const EMAIL_SENDER_NAME = env('EMAIL_SENDER_NAME', 'Jeff');
 export const EMAIL_SENDER_SIGNATURE = env('EMAIL_SENDER_SIGNATURE', 'Jeffrey V. Wong | baderlab.org | University of Toronto');
+export const EMAIL_SUBJECT = env('EMAIL_SUBJECT', 'Sharing published results in a cool new way');
 export const SMTP_PORT = env('SMTP_PORT', 587);
 export const SMTP_HOST = env('SMTP_HOST', 'localhost');
 export const SMTP_USER = env('SMTP_USER', 'user');

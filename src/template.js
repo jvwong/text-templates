@@ -25,6 +25,7 @@ import {
   APP_DOMAIN,
   EMAIL_SENDER_NAME,
   EMAIL_SENDER_SIGNATURE,
+  EMAIL_SUBJECT,
   TWITTER_ACCOUNT_NAME,
   TEMPLATE_FILENAME,
   TEMPLATE_DATA_FILENAME
@@ -57,7 +58,7 @@ const getTemplateData = async path => {
   });
 };
 
-const getEmailSubject = templateVars => `Our project trying to change how published results are shared`;
+const getEmailSubject = () => EMAIL_SUBJECT;
 const getEmailRecipientAddress = templateVars => _.get( templateVars, 'emailRecipientAddress' );
 
 const populateTemplates = async ( templatePath, templateData ) => {
