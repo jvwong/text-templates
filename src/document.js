@@ -82,15 +82,19 @@ const sleep = delay => new Promise ( resolve => {
 });
 
 const createDocuments = async documentData => {
-  // return await Promise.all( documentData.map( postDoc ) );
   const delay = DELAY_MS;
   const newDocs = [];
 
   for ( const datum of documentData ) {
-    const newDoc = await postDoc( datum );
-    console.log( `created: ${newDoc.id}` );
-    newDocs.push( newDoc );
-    await sleep( delay );
+    try {
+      const newDoc = await postDoc( datum );
+      console.log( `created doc: pmid = ${_.get( newDoc, ['citation','pmid'] )}; id = ${_.get( newDoc, ['id'] )}` );
+      newDocs.push( newDoc );
+      await sleep( delay );
+
+    } catch ( err ) {
+      console.error( `Error for doc: pmid=${_.get( datum, ['pmid'] )}; ${err.message}` );
+    }
   }
 
   return newDocs;
