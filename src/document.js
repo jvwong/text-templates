@@ -109,7 +109,7 @@ const main = async () => {
 
   const documentData = await getDocumentData( DOCUMENT_DATA_PATH );
   const noUrlDocData = documentData.filter( hasNoUrl );
-  const newDocuments = await createDocuments( noUrlDocData.slice( 0 , 10 ) );
+  const newDocuments = await createDocuments( noUrlDocData );
 
   const updatedDocumentData = updateDocumentData( documentData, newDocuments );
   const csvData = json2csv( updatedDocumentData );
