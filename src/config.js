@@ -16,6 +16,7 @@ const env = (key, defaultVal) => {
   }
 };
 
+export const APP_BASE_URL = env( 'APP_BASE_URL', 'http://localhost:3000/' );
 export const APP_NAME = env( 'APP_NAME', 'Biofactoid' );
 export const APP_DOMAIN = env( 'APP_DOMAIN', 'biofactoid.org' );
 
@@ -36,7 +37,7 @@ export const EMAIL_FROM_ADDR = env('EMAIL_FROM_ADDR', 'jeffvin.wong@utoronto.ca'
 export const EMAIL_FROM = env('EMAIL_FROM', 'Jeffrey V Wong');
 export const EMAIL_SENDER_NAME = env('EMAIL_SENDER_NAME', 'Jeff');
 export const EMAIL_SENDER_SIGNATURE = env('EMAIL_SENDER_SIGNATURE', 'Jeffrey V. Wong | baderlab.org | University of Toronto');
-export const EMAIL_SUBJECT = env('EMAIL_SUBJECT', 'Sharing published results in a cool new way');
+export const EMAIL_SUBJECT = env('EMAIL_SUBJECT', 'Helping maximize the reuse of published findings ');
 export const SMTP_PORT = env('SMTP_PORT', 587);
 export const SMTP_HOST = env('SMTP_HOST', 'localhost');
 export const SMTP_USER = env('SMTP_USER', 'user');

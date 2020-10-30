@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "template": "node -r esm ./src/template",
     "mailto": "node -r esm ./src/mailto",
-    "start": "run-s template mailto"
+    "start": "run-s template mailto",
+    "document": "node -r esm ./src/document"
   },
   "author": "jvwong",
   "license": "ISC",
