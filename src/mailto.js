@@ -1,4 +1,4 @@
-import open from 'open';
+import { mailto } from 'openurl';
 import fs from 'fs';
 import inquirer from 'inquirer';
 import csv from 'csvtojson';
@@ -9,7 +9,7 @@ const readFile = Promise.promisify( fs.readFile );
 const DATA_PATH = `output/rendered-data.csv`;
 
 const send = async (to, subject, body) => {
-  open(`mailto:${to}?subject=${subject}&body=${body}`);
+  mailto( [ to ], { subject, body });
 };
 
 const csv2json = async csvTxt => {
