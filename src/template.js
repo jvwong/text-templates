@@ -34,7 +34,7 @@ import { eSummary } from './util/eutils';
 
 const TEMPLATE_PATH = path.resolve( path.join( 'input/templates', TEMPLATE_FILENAME) );
 const TEMPLATE_DATA_PATH = path.resolve( path.join( 'input/data', TEMPLATE_DATA_FILENAME ) );
-const DATA_OUTPUT_PATH = 'output/rendered-data.csv';
+const DATA_OUTPUT_PATH = `output/rendered-data-${TEMPLATE_DATA_FILENAME}`;
 
 const DEFAULT_TEMPLATE_DATA = {
   appName: APP_NAME,
