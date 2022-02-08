@@ -10,7 +10,7 @@ Jeff
 
 ---
 
-Wong et al. Capturing scientific knowledge in computable form. bioRxiv (2021). Preprint at https://doi.org/10.1101/2021.03.10.382333
+Author-sourced capture of pathway knowledge in computable form using Biofactoid. eLife (2021). https://elifesciences.org/articles/68292
 
 {{ emailSenderSignature }}
 
