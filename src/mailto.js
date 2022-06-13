@@ -40,12 +40,4 @@ const main = async () => {
   }
 };
 
-const test = async () => {
-  const to = 'someone@example.com';
-  const subject = 'Some subject line';
-  const body = 'Body';
-
-  send(to, subject, body);
-};
-
 main();

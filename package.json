@@ -11,7 +11,9 @@
     "start": "run-s template mailto",
     "document": "node -r esm ./src/document",
     "lint:js": "eslint ./src",
-    "lint": "run-s lint:*"
+    "lint": "run-s lint:*",
+    "fix:js": "eslint ./src --fix",
+    "fix": "run-s fix:*"
   },
   "author": "jvwong",
   "license": "ISC",

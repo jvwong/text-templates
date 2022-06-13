@@ -21,7 +21,7 @@ export const APP_NAME = env( 'APP_NAME', 'Biofactoid' );
 export const APP_DOMAIN = env( 'APP_DOMAIN', 'biofactoid.org' );
 
 // Templates
-export const TEMPLATE_FILENAME = env( 'TEMPLATE_FILENAME', 'reminder.txt' );
+export const TEMPLATE_FILENAME = env( 'TEMPLATE_FILENAME', 'invitation.txt' );
 export const TEMPLATE_DATA_FILENAME = env( 'TEMPLATE_DATA_FILENAME', 'sample-data.csv' );
 
 // Links

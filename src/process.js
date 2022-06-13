@@ -1,5 +1,6 @@
 import path from 'path';
-import { json2csv, writeToFile, getTemplateData} from './util/file';
+import { json2csv, writeToFile } from './util/file';
+import { getTemplateData } from './util/template';
 import { TEMPLATE_DATA_FILENAME } from './config';
 
 const TEMPLATE_DATA_PATH = path.resolve( path.join( 'input/data', TEMPLATE_DATA_FILENAME ) );
@@ -17,7 +18,7 @@ const main = async () => {
     console.error( err );
     process.exit( 1 );
   }
-}
+};
 
 main();
 
