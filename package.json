@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "process": "node -r esm ./src/process",
     "template": "node -r esm ./src/template",
     "mailto": "node -r esm ./src/mailto",
     "start": "run-s template mailto",
